@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WWE SuperCard Guide</title>
+  <style>
+    body {
+      width: 80%;
+      margin-left: 10%;
+      color: white;
+      font-family: Times;
+      font-weight: 500;
+      line-height: 1.4em;
+      background-image: linear-gradient(black, rgb(10, 10, 10), black);
+    }
+
+    h1, blockquote {
+      font-family: sans-serif;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    #fontControls {
+      font-family: sans-serif;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    hr {
+      border: 1px solid white;
+      margin-top: 3em;
+      margin-bottom: 3em;
+    }
+
+    h1 {
+      font-size: 3.6em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+
+    blockquote {
+      font-size: 1.35em;
+    }
+
+    li {
+      line-height: 1.5em;
+    }
+
+    div {
+      width: 80%;
+      margin-left: 5%;
+    }
+
+    div hr {
+      width: 40%;
+      height: 0px;
+    }
+
+    a.collapsible, a.expanded {
+      text-decoration: underline;
+      font-size: 20px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .collapsible:after {
+      content: "\2796"; /* Unicode - */
+      font-size: 13px;
+      float: left;
+      margin-right: 1em;
+      margin-top: 0.1em;
+    }
+
+    .expanded:after {
+      content: '\02795'; /* Unicode + */
+      font-size: 13px;
+      float: left;
+      margin-right: 1em;
+      margin-top: 0.1em;
+    }
+
+    .light {
+      border: 1px solid black;
+    }
+
+    .dark {
+      border: 1px solid white;
+    }
+  </style>
+</head>
+<body>
+
+<h1>WWE SuperCard Guide</h1>
+
+<blockquote>
+  <br/>
+  
+  This guide contains a mixture of facts and experience-based opinions.
+
+  <br/>
+  <br/>
+
+  I am not affiliated with WWE SuperCard in any way.
+
+  <br/>
+  <br/>
+
+  <br/>
+
+  <small>This is designed for use in Chrome.</small>
+
+  <hr>
+</blockquote>
+
+<div id="fontControls">
+  Theme Controls
+
+  <br/>
+  <br/>
+
+  <label for="dark">
+    <input type="radio" name="theme" id="dark" onchange="updateTheme('dark')" checked>
+    Dark
+  </label>
+  <label for="light">
+    <input type="radio" name="theme" id="light" onchange="updateTheme('light')">
+    Light
+  </label>
+
+  &nbsp;&nbsp;&nbsp;
+
+  <label for="fontFaceList">Font Face</label>
+
+  <select id="fontFaceList" onchange="updateFontFace(this.options[this.options.selectedIndex].text)">
+    <option>Arial</option>
+    <option>Calibri</option>
+    <option>Courier</option>
+    <option>Georgia</option>
+    <option>Helvetica</option>
+    <option>Lucida Sans</option>
+    <option>Tahoma</option>
+    <option selected>Times</option>
+    <option>Sans-Serif</option>
+    <option>Verdana</option>
+  </select>
+
+  <label for="fontSize">Font Size (px)</label>
+  <input type="number" step="1" min="1" max="48" id="fontSize" value="16" onchange="updateFontSize(this.value)"/>
+
+  <label for="fontWeight">Font Weight</label>
+  <select id="fontWeight" onchange="updateFontWeight(this.value)">
+    <option>100</option>
+    <option>200</option>
+    <option>300</option>
+    <option>400</option>
+    <option>450</option>
+    <option selected>500</option>
+    <option>549</option>
+    <option>550</option>
+    <option>600</option>
+    <option>700</option>
+    <option>800</option>
+  </select>
+
+</div>
+
+<br/>
+<br/>
+
+<a name="terminology" onclick="collapsible(this)" class="collapsible">Terminology</a>
+
+<div id="terminology">
+  <br/>
+
+  <ul>
+    <li>Balanced Deck: All cards have similar stats.</li>
+    <li>Feeder: A junk card.</li>
+    <li>Alignment: The up/down/left/right arrow on cards.</li>
+    <li>Base/Single: A non-pro card that can be combined into a pro.</li>
+    <li>Base Set: Default set of cards for each rarity tier.</li>
+    <li>Elimination: When any stat reaches 0 that card is removed from the game. Only used in some game modes.</li>
+    <li>Opponent: Player you  are against. Human, AI, or mixed.</li>
+    <li>Enemy: Opponents card.</li>
+    <li>Scaling: An opponents deck that grows stronger.</li>
+    <li>Mirror: A deck that is similar to yours. This can be any combination of the stats, Alignment counts, or deck rarity tier. Tier mirror can generate overpowered decks, but it is not used as often as the others.</li>
+    <li>FQ/FC: Force Quitting/Closing the app before the animation for a losing match starts (after stats are determined) can prevent losing energy/doublers to a loss in Event modes.</li>
+    <li>Momentum: Up to 5x Momentum is rewarded for reaching certain point thresholds throughout PvP, and gives any cards that are in Momentum slots a % stat boost in all game modes.</li>
+  </ul>
+</div>
+
+<hr>
+
+<a name="importantCards" onclick="collapsible(this)" class="collapsible">Important Info About Cards</a>
+
+<div id="importantCards">
+  <br/>
+  <br/>
+
+  <h3>Superstar</h3>
+
+  <br/>
+
+  A Superstar card is most obvious because of the fact they have stats for Power/Toughness/Speed/Charisma (POW/TGH/SPD/CHA) and an Alignment arrow.
+
+  <br/>
+  <br/>
+
+  Superstar cards also have an Ability - named after the characters special finisher move - which boosts the two stats the superstar is most well known for (e.g. Rey Mysterio uses Speed and Charisma; Dominik Mysterio though is Power and Speed).
+
+  <br/>
+  <br/>
+
+  If a superstar currently has a Championship in real life it will be displayed as an animated icon on the card. Champ Boost increases the % chance and stat boost of their ability depending which one they have.
+
+  <br/>
+  <br/>
+
+  Next up is the superstars Technique; these are <em>another</em> special ability that can trigger. Techniques can be upgraded by playing matches with a card.
+
+  <br/>
+  <br/>
+
+  The following are in the form Technique Name (icon description) - Technique effect. <em>Explanation, if necessary</em>
+
+  <br/>
+  <br/>
+
+  <ul>
+    <li>Overrun (running person) - After Win: % chance to apply % of over-damage to next match.
+    </li>
+    <li>Assist (hand) - Before Match: % chance to gain % of stats of a random card in deck.
+    </li>
+    <li>Chain (chain link) - After Win: % chance to apply this cards Ability bonus to next match.
+    </li>
+    <li>Reversal (circular arrows) - After Loss: % chance to replay match with diferent stat matchup. <em>Can only trigger on the original match</em>
+    </li>
+    <li>Inspire (buff person flexing) - After Match: % chance to increase stats by % next match.
+    </li>
+    <li>Defend (shield) - After Match: % chance to reduce damage taken by % next match. <em>Buffs using target cards stats</em>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h3>Equipment</h3>
+  
+  <br/>
+
+  Equipment cards can be attached to Superstars to make them more powerful with a variety of boosts: single stats, Ability trigger %, and Ability stat boost. Special Credits-only Equipment can be used to force cards to be of a specific Alignment (e.g. Equip it to a Superstar to make it an Up).
+
+  <br/>
+  <br/>
+
+  Equipment cards gain a second boost at 50 matches played with them equipped, and a third boost at 100. The first boost is always the same, but the second and third seem to be random.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>Supports</h3>
+
+  <br/>
+
+  There are two types of Support cards - Manager and Action. If used in a mode the deck will have 1 Manager and 2 Actions.
+
+  <br/>
+  <br/>
+
+  The Manager is activated at the beginning of a game before the first match. They increase at least one stat on ALL cards in a deck, and can increase up to 2 stats.
+
+  <br/>
+  <br/>
+
+  Actions can each be activated <em>once per game</em> by a player to attempt to gain an advantage in a <em>single matchup</em>. Actions can effect 1-2 stats, except for Second Wind which effects all four.
+
+  <br/>
+  <br/>
+
+  Manager cards are only buffs, meaning they only add stats. Action cards though can be either buffs or debuffs, meaning they either increase the stats of a players cards or decrease the stats of the enemy cards.
+
+  <br/>
+
+<hr>
+
+<h3>Pro Superstar and Support</h3>
+
+  <br/>
+
+  Two base Superstar or Support cards can be combined into a Pro card, but for maximum stats need to be max level (and have 100 matches played on superstars). When not done properly the pro will get a silver star, but when done properly the pro will get a gold star showing they have the maximum potential.
+
+  <br/>
+  <br/>
+
+  Pro cards are stronger than bases from their tier, and have similar stats to base cards from the tier above them once they have been leveled up to max (and had all matches played again on superstars). This creates a natural progression of decks with Pros of tier X upgrading to singles of tier X + 1.
+
+  <br/>
+  <br/>
+
+  Fortifying is only possible on Pro cards by using a base or Pro of the same card, and unlocks up to 3 extra &quot;levels&quot; (often referred to as F1/F2/F3). A base unlocks +1 level, whereas a Pro unlocks +2 levels. Using a card that is max level to Fortify will both unlock Fortification levels and fill their XP to activate the boost. An F3 pro is stronger than a base single at tier X + 1 in the example above.
+
+  <br/>
+  <br/>
+
+</div>
+
+<hr>
+
+<a name="importantGame" onclick="collapsible(this)" class="collapsible">About The Game (not HHH)</a>
+
+<div id="importantGame">
+  <br/>
+  <br/>
+
+  <h3>Deck-Reward Relation</h3>
+
+  <br/>
+
+  Rewards in the game are often based on the tier of a specific deck. For example, the deck Top 8 is often used to determine reward eligibility, including some packs in the Store that can be bought with Credits (which can be paid for with $). Not all of the packs are like this of course, so if you are spending Credits make sure you know what you are buying.
+
+  <br/>
+  <br/>
+
+  This system makes explosive growth seem like a good idea of course - grow faster and get better rewards sooner. And in the beginning explosive growth works great, but then you will start to get cards that are from a higher tier than the rest of a deck and greatly increase the maximum and average power of any deck they are in.
+
+  <br/>
+  <br/>
+
+  When the average power of a deck increases too far past the minimum power (the weakest card) it becomes unbalanced and it is far more likely to lose matchups and games. Yes; Minimum, Average, Maximum - basic math class came back for you, as you may have feared. A safer way to upgrade is to make sure you do not let any decks you will need to use become unbalanced for too long, which is a relative amount of time based on what events are active and upcoming along with how active you are.
+
+  <br/>
+  <br/>
+
+  Many game modes do not use the Top 8 for their rewards though, but instead larger decks. This is where it gets hardest to not let it get unbalanced, but also where it has the most room for slightly-higher stats at the top end because of the higher number of cards in the deck lowering the average.
+
+  <br/>
+  <br/>
+
+  The simplest way to protect from getting screwed by an overpowered card is to under-level cards so that their stats will be near the rest of the deck after they have their matches played. The easiest way to do this is by closely managing the cards you  are using as feeders. For example, use the highest rarity feeders to train cards that will not be more powerful than the average of whatever deck you  are messing with, and then use lower rarity cards as feeders to more slowly level up a stronger card to fit into the deck.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>Deck Management</h3>
+
+  <br/>
+
+  While a locked deck cannot be directly changed it is still possible to change the cards in it by selectively increasing card stats on those you  would rather be using. Equipment is the best way as it is the smallest effect so it does not increase the average power of the deck as much. Momentum is a lot harder to use on any base or pro of the deck tier for this effect, but can still work well on a pro at deck tier - 1.
+
+  <br/>
+  <br/>
+
+  In modes where it is possible to FQ to prevent loss and retry without losing progress tweaking the power of the bottom card can be used to overcome an undefeatable matchup as it will modify the enemy stats. LMS is all I know of where this works, but maybe CoC too.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>Supermove</h3>
+
+  <br/>
+
+  AKA &quot;Nuke vs Nuke&quot; as a strategy. Charge it up by playing matches, and when activated it will increase the stats of your cards in the current match by 2x. Best used to overcome unbeatable opponents in events or guarantee a win in Survivor for better rewards.
+<br/>
+  This <em>does not work</em> in all modes, e.g. Royal Rumble in particular - it eats the charge but gives no buff.
+<br/>
+
+</div>
+
+<hr>
+
+<a name="growth" onclick="collapsible(this)" class="collapsible">Steps To Growth</a>
+
+<div id="growth">
+  <br/>
+  <br/>
+
+  If you are a new or returning (after how long IDK) many modes will give a starter pack of weak cards, which are always weak no matter your tier. Worth collecting a bunch ASAP to grow your top tier before you start doing anything else.
+
+  <br/>
+  <br/>
+
+  Lock 10/15 male or female superstars for use in decks. If you have 10/15x of a single rarity, great - they can be used without even leveling them up. If you have to level anything up that is near to your decks tier, Train with one card at a time until you know how many it takes to level cards of that tier up to a balanced state with the rest of the deck.
+
+  <br/>
+  <br/>
+
+  Level your best 2-stat Manager Support, and optionally the best 2x Action Support. If you have 4x male + 2x female that will not screw up the 10/15 cards saved for your PvP deck, it is worth it to level those up to increase your top 8 tier.
+
+  <br/>
+  <br/>
+
+  Push for 20k points in PvP for the extra reward pack if possible, or as many Momentum slots as you can get if not. Top 5 in a PvP group get a promotion up to Silver, then Gold, then Platinum League, and extra SuperCoins. Top 50 <em>Global</em> get Credits, which can be done for free by burning ads for energy if people are very busy in events (which is extremely hard to judge). When you get Momentum put it on as many cards in your top 8 as you can without messing up any decks, and update it as your top 8 changes.
+
+  <br/>
+  <br/>
+
+  Many events will not seem very rewarding, but do what you can to at least get minimal rewards - Giants Unleashed is great to return into as you can participate without being strong. MitB is not very profitable at lower point totals even when you win and get 2x SC rewards, but it is still a good addition to SC if you have the time to play it.
+
+  <br/>
+  <br/>
+
+  Use draft picks as you see fit and hold feeders to help build your top 8 tier as you get bigger cards. Do not get too attached as all cards will turn into feeders sooner or later. Imperfect Pros are fine at this point, but they  are better if you level them to 100 and skip playing matches as leveling gives far more stats.
+
+  <br/>
+  <br/>
+
+  Once your rate of growth slows, start building balanced decks of your powerful cards. Make sure to build proper/perfect Pro Superstar (using RR and Performance Center for matches played) and Support cards for maximum rarity tier, because no matter how balanced a deck of imperfect Pro cards will fall short of ++ in its own rarity tier.
+
+  <br/>
+  <br/>
+  Also, try to play Survivor/TLC regularly for rewards, especially when you're trying to build out a deck. Great for Exclusive Draft Picks, and once you learn to play well, high-tier cards.
+</div>
+
+<hr>
+
+<a name="pveModes" onclick="collapsible(this)" class="collapsible">PvE Modes</a>
+
+<div id="pveModes">
+  <br/>
+  <br/>
+
+  <p>Each mode consists of one or more rounds which are 3 or more matches. At the beginning of each round players <em>may</em> be dealt a new hand of cards, and Support Action cards <em>may</em> be refreshed. A match can be solo or tag using male or female superstars (not mixed, yet). The winner of each round is determined by the greater total of 1-3 stats.</p>
+
+  <br/>
+
+  <ul>
+    <li>Max Energy: 5
+    </li>
+    <li>Energy Regen: 15mins
+    </li>
+    </ul>
+    
+    <hr/>
+
+    <h3 id="wildwar">Wild/War</h3>
+
+    <br/>
+
+    <ul>
+    <li>Opponent: AI (Mixed?)
+    </li>
+    <li>Enemy: Mirror
+    </li>
+    <li>Rounds: 3; Tiebreaker if necessary.
+    </li>
+    <li>Deck: Custom
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  The strongest deck uses 4x balanced male and 2x balanced female pro superstars (of the highest tier) setup as tag teams - e.g. left, right, left, right. It can still lose to more powerful enemies.
+
+  <br/>
+  <br/>
+
+  The best deck to go undefeated (for the weekly Wild Wednesday Quest) removes <em>the last</em> of the big males and replaces it with a low-power card. This also makes it possible to effectively idle a game. A single low-tier female can be used instead of a male or in addition to it, but a single weak male seems more likely to go undefeated.
+
+  <br/>
+  <br/>
+
+  If your deck is not pros of the current highest-tier cards the opponent can (rarely) overpower it with a deck using 2+ pros and 2+ lowest-tier cards.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>Royal Rumble</h3>
+
+  <br/>
+
+  <ul>
+    <li>Opponent: AI (Mixed?)
+    </li>
+    <li>Enemy: Mirror
+    </li>
+    <li>Rounds: 
+    </li>
+    <li>Deck: Custom
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  Note: Alignment arrows determine the matchup stat a superstar creates when choosing a matchup type in RR. Left is Power, Right is Toughness, Up is Speed, and Down is Charisma.
+
+  <br/>
+  <br/>
+  The best overall build is a deck full of balanced superstars with good techniques. It is hard to keep control of the ring at all times so it won  not get a high score, but it does not lose easily either.
+
+  <br/>
+  <br/>
+
+  The most useful build is a deck with 1x balanced card of each Alignment with 2-3x (2x of one, as it is a 15-card deck) lowest-tier singles of each alignment. So, for example, 1x RR23 male single and 2-3x Bio-Mechanical male single in each row of the deck. This build is great to get matches played on superstar cards quickly, but it is also more likely to lose a game or get the maximum possible score in RR. Lol.
+
+  <br/>
+  <br/>
+
+  This mode can be idled but is very likely to lose. It is possible to look ahead and plan where to tap next round and barely pay it any attention at all though.
+
+  <br/>
+  <br/>
+
+  Yes, RR sounds like seal noises, and it is okay to say it.
+
+  <hr>
+
+  <h3>Elimination Chamber</h3>
+
+  <br/>
+
+  <ul>
+    <li>Opponent: AI
+    </li>
+    <li>Enemy: Mirror
+    </li>
+    <li>Knockouts active
+    </li>
+    <li>Rounds: 6+
+    </li>
+    <li>Deck: Custom
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  The best and most useful build is a deck of balanced cards because it is a mode with Knockouts active, but with this it is very hard to lose and can even win while idling.
+
+  <br/>
+  <br/>
+
+  Much faster to play at full speed than RR with equal Draft Pick rewards (12) but very slightly less SuperCoins and PvP points. So, it can burn energy faster and gain points/picks/SC faster than RR, but at a maximum 2x matches played <em>per card that is drawn</em> which of course won  not be all of them.
+
+  <br/>
+  <br/>
+</div>
+
+<hr>
+
+<a name="pvpModes" onclick="collapsible(this)" class="collapsible">PvP Modes</a>
+
+<div id="pvpModes">
+  <br/>
+  <br/>
+
+  Each mode consists of one or more rounds which are 3 or more matches. At the beginning of each round players <em>may</em> be dealt a new hand of cards, and Support Action cards <em>may</em> be refreshed. A match can be solo or tag using male or female superstars (not mixed, yet). The winner of each round is determined by the greater total of 1-3 stats.
+
+  <br/>
+  <br/>
+
+  <hr/>
+
+  <h3>King of the Ring</h3>
+
+  <br/>
+
+  <ul>
+  <li>Opponent: Mixed
+  </li>
+  <li>Enemy: Mirror tier
+  </li>
+  <li>Rounds: 2+
+  </li>
+  <li>Deck: Custom
+  </li>
+  <li>Max Reward: Deck tier
+  </li>
+  </ul>
+
+  <br/>
+
+  The most useful way to play this is with a mostly-balanced deck and 1 low-tier card in a singles matchup. This has a good chance to make it past Qualifiers into Quarterfinals for 25 picks instead of 5 picks. It will occasionally go further and can even win with minimal energy investment (6 total = 1 per tag team + 1 per single, leaving the low card and half of each tag team at 0 energy).
+
+  <br/>
+  <br/>
+
+  For hardcore mode use a powerful deck, check hourly, and fill energy as often as you comfortably can. A lot of extra work, unless you just want the Badge for KotR wins.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>Tag Team Takedown</h3>
+
+  <br/>
+
+  <ul>
+    <li>15min cooldown after stopping
+    </li>
+    <li>Opponent: AI
+    </li>
+    <li>Opponent Decks: Mirrors
+    </li>
+    <li>Rounds: Many
+    </li>
+    <li>Partner: Human (questionable)
+    </li>
+    <li>Deck: Locked, top 4x each Alignment
+    </li>
+    <li>Max Reward: Top 8
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  While this is effectively a PvE mode the teammate can easily turn it into a nightmare. Requires attention to go undefeated (+8 TTT points towards the pack instead of +5 for a win), and idling will likely lose because the game just picks the leftmost card repeatedly.
+
+  <br/>
+  <br/>
+
+  Pay attention. If your partner does  not seem to have a tag for a specific Alignment, do not use it unless absolutely necessary. In the unlikelihood they do not even have a neutral tag match try not to throw more of the Alignment that caused that discovery.
+
+  <br/>
+  <br/>
+
+  If you have a card that is damaged on at least one stat which is NOT part of the current matchup AND it was a good tag team previously, use it! Your teammate should realize to tag with it using their card that is damaged, which means you will both be keeping more cards healthy further into the match.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>TLC</h3>
+
+  <br/>
+
+  <ul>
+    <li>4h cooldown after a game ends
+    </li>
+    <li>Opponents: Human
+    </li>
+    <li>Opponent Deck: Mirror tier (?)
+    </li>
+    <li>Rounds: 6+
+    </li>
+    <li>Deck: Locked, top 4x each Alignment
+    </li>
+    <li>Max Reward: Top 8
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  Try to finish one game before starting another, because when the other person stops playing for the day and it takes 24h+ to finish one game that is a lot of wasted rewards.
+
+  <br/>
+  <br/>
+
+  The randomizer that will place the objects for you uses some terrible patterns. Better to discover multiple good ways to place your objects by playing and switching between them.
+
+  <br/>
+  <br/>
+
+  <hr>
+
+  <h3>Survivor</h3>
+
+  <br/>
+
+  <ul>
+    <li>Opponents: Mixed
+    </li>
+    <li>Rounds: 8+
+    </li>
+    <li>Max Reward: Top 8
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  Draft mode! The one time a random deck is okay. Drafting 2x opposing tag teams (up/down and left/right) helps keep the 5th card useable, though it is always a base.
+
+  <br/>
+  <br/>
+  Between rounds if you have no pairs to pro AND you can fortify a pro AND you can  not guarantee getting a pair to pro or tag partner by swapping a base for a base, then fortify the pro. It is better to pro or fortify between rounds than it is to swap a base hoping for something better as the bases can still be traded to an opponent.
+
+  <br/>
+  <br/>
+
+  If you  are in the top 3 and haven  not had a bye yet AND <em>both other players have</em>, then you  are next if neither is knocked out this round. Outside of top 3 the players with the best win-loss records have a high chance of getting a bye, but the best record can still get screwed.
+
+  <br/>
+  <br/>
+
+  The Supermove is great for making top 4, but it is best when saved to make top 2 or win. Win round 1, throw a potential winner round 2 and back it up with Super.
+
+  <br/>
+  <br/>
+</div>
+
+<hr>
+
+<a name="events" onclick="collapsible(this)" class="collapsible">Events</a>
+
+<div id="events">
+  <br/>
+  <br/>
+
+  Each mode consists of one or more rounds which are 3 or more matches. At the beginning of each round players <em>may</em> be dealt a new hand of cards, and Support Action cards <em>may</em> be refreshed. A match can be solo or tag using male or female superstars (not mixed, yet). The winner of each round is determined by the greater total of 1-3 stats.
+
+  <br/>
+  <br/>
+
+  <h3>Money In The Bank</h3>
+
+  <br/>
+
+  <ul>
+  <li>Max Energy: 5
+  </li>
+  <li>Energy Regen: 1hr
+  </li>
+  <li>FQ Energy Saver/Loss Prevention
+  </li>
+  <li>Enemy: Mirror
+  </li>
+  <li>Deck: Custom
+  </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  The only useful build is a deck of balanced cards because of the nature of the mode. A single weak card can help fit 1-2 overpowered cards. This will lead to losing more often though, when you do not draw the overpowered cards.
+
+  <br/>
+  <br/>
+
+  Try to avoid opponents with Assist, Defend, or Inspire. Chain or Overrun opponents are much safer. Action Support are safest to use in the final 2 rounds, but may be needed earlier.
+
+  <br/>
+  <br/>
+
+  This mode can be idled with a well-balanced deck, but the game just picks the leftmost card each round for each side.
+
+  <br/>
+
+  <hr>
+
+  <h3>Team/Ring Domination</h3>
+
+  <br/>
+
+  <ul>
+  <li>Max Energy: 5
+  </li>
+  <li>Energy Regen: 15min
+  </li>
+  <li>FQ Energy Saver/Loss Prevention
+  </li>
+  <li>Opponent: AI
+  </li>
+  <li>Enemy: Mirror
+  </li>
+  <li>Deck(s): Custom
+  </li>
+  <li>Max Reward: Deck tier
+  </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  A balanced deck that is half-filled with 2x opposing Alignments (e.g. up/left or down/right) does well as it can force opponents into a corner and beat them down. A deck that has at least 1x each alignment will have a better chance to go undefeated for +1 draft pick. In Solo it is possible to use a single weak card to lower the average power of the deck for easier opponents.
+
+  <br/>
+  <br/>
+
+  The AI seems to prefer to fill holes to keep the board square/rectangular, but can  not always do so.
+
+  <br/>
+  <br/>
+
+  Not a great idea to idle this mode, as the AI does not actually try to play for you and instead just throws a card into the ring and sometimes gets lucky and triggers a match.
+
+  <br/>
+  <br/>
+
+  After getting the Heroic upgrade for a solo event card it is added to the list of picked cards again, so if it is not locked this is a second chance to accidentally dust it.
+
+  <br/>
+  <br/>
+
+  The TRD draft board is shared with the regular draft board, but with separate Draft Picks. Because of this it is possible to pick at the regular board until there is not much left and then play some TRD for an easy shard, rinse and repeat.
+
+  <br/>
+
+  <hr>
+
+  <h3>Team/Road To Glory</h3>
+
+  <br/>
+
+  <ul>
+  <li>Max Energy: 5
+  </li>
+  <li>Energy Regen: 15min
+  </li>
+  <li>FQ Energy Saver/Loss Prevention
+  </li>
+  <li>Opponent: AI
+  </li>
+  <li>Enemy: Scales
+  </li>
+  <li>Deck: Custom - 16x male and 4x female Superstars, 1x Manager and 2x Action Support
+  </li>
+  <li>Max Reward: Deck tier
+  </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  In Solo RTG a balanced deck will have the best chance for the longest period because the opposing deck will eventually mirror your deck before overpowering it once you reach a wall. After reaching a wall it is possible to update your deck with stronger cards to increase the average power and get weaker opponents for a little bit longer.
+
+  <br/>
+  <br/>
+
+  In Team RTG it takes a lot longer to hit the wall even with a slightly-unbalanced deck, and it is still reasonable to get 5-point games the whole way.
+
+  <br/>
+  <br/>
+
+  These modes can be idled, but it is best in the early stages where wins are guaranteed. The later stages of Solo RTG require increasing attention, and the latest stages of Team RTG may require attention depending on the balance of the team deck (both stats and alignments).
+
+  <br/>
+  <br/>
+
+  After getting the Heroic upgrade for a solo event card it is added to the list of picked cards again, and if not locked this is a second chance to accidentally dust it.
+
+  <br/>
+
+  <hr>
+
+  <h3>Last Man Standing</h3>
+
+  <br/>
+
+  <ul>
+    <li>Enemy: Mirror</li>
+    <li>Deck: Locked - Top 8 male and 4 female Superstar, 1 Manager and 2 Action Support</li>
+    <li>Max Reward: Grind-based</li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  A balanced deck is best as with all mirror opponents. It is possible to play with the power of the weakest card in the deck using Momentum/Equipment (and Levels, if it is under max) to try to fix losing matchups, but doing so will obviously slow down the grind.
+
+  <br/>
+  <br/>
+
+  Block and Reveal should not be used immediately as the early Arenas have such a low point potential; better to save them until there is at least 4 Obstacles to Reveal 3x and Block 1x, and then streak through the Arena for max points.
+
+  <br/>
+
+  <hr>
+
+  <h3>Clash of Champions</h3>
+
+  <br/>
+
+  <ul>
+    <li>Enemy: Mirror</li>
+    <li>Deck: Locked - Top 16 male Superstars, 1 Manager and 2 Action Support</li>
+    <li>Max Reward: Grind-based</li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  A balanced deck is best, because again the enemies are Mirror. Use an assistant to help remember where you have been previously across multiple attempts: <a href="https://l3laze.github.io/toys/coc_assist">CoC Assistant</a>. Could be done with pen/cil and paper, this is just easier because I am a lazy nerd.
+
+  <br/>
+  <br/>
+
+  I follow the arrows of opponents until they reveal they're not pointing to the boss, e.g. one points left at another that points right, or up to down, or etc. After that I assume the whole board is pointing away from the boss, and then take something like the reverse path of where the cards point.
+
+  <br/>
+
+  <hr>
+
+  <h3>Giants Unleashed</h3>
+
+  <br/>
+
+  <ul>
+    <li>Enemy: Raid Boss</li>
+    <li>Deck: Top 4x of each Alignment of male or female Superstars (not mixed)</li>
+    <li>Max Reward: Grind-based</li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  An unbalanced deck should be okay as this is just an MMO-style raid boss event, but using the highest power deck possible will help farm the rewards a little faster.
+
+  <br/>
+  <br/>
+
+  Using 2-4 cards each round is best even if they do not match the Giant because it gives a better chance of getting 3 or 4 of a kind. Round 1 throw any matching arrow and if less than 3 cards add either the most- or least-common other Alignment; e.g. with a Giant using R and a hand of R L U U D throw the R and either U U - or - L and/or D. While cutting into 4 of a kind for at least one Alignment hurts it gives a better chance to get a 3 of a kind match and a little extra damage overall when you whiff anyways.
+
+  <br/>
+  <br/>
+
+  After getting the Heroic upgrade for an event card it is added to the list of picked cards again, and if not locked this is a second chance to accidentally dust it.
+
+  <br/>
+
+  <hr>
+
+  <h3>War Games</h3>
+
+  <br/>
+
+  <ul>
+    <li>Opponent: AI
+    </li>
+    <li>Enemy: Mirror
+    </li>
+    <li>Deck: Custom - 16x male or female Superstar (not mixed), 1x Manager and 2x Action Support
+    </li>
+    <li>Max Reward: Grind-based
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  Ugh. The only mode Styles (Grappler, Striker, Brawler, High-Flyer, Orator, event cards are All) are used, but it is not worth focusing on them at all. Balanced deck with 4x each Alignment is best as they will still have some of the Styles when needed but will also have a better chance of matching Alignment rings which are roughly equally common to Style rings.
+
+  <br/>
+  <br/>
+
+  The AI seems to vary slightly from slow and stupid to fast and smart, so if it is not taking a move you can delay your turn until the last moments to help screw them over. If it is making moves try to avoid butting heads unless you have matches for that ring - it is a computer, you can  not do math as fast, and they love screwing us over.
+
+  <br/>
+  <br/>
+
+  If there are any debuff Action Support in your deck they can be used to Knockout an opponent by getting it to 0 points in any stat as long as you haven  not used a support in that slot yet.
+
+  <br/>
+  <br/>
+
+  After getting the Heroic upgrade for an event card it is added to the list of picked cards again, and if not locked this is a second chance to accidentally dust it.
+
+  <br/>
+
+</div>
+
+<hr>
+
+<a name="teamwork" onclick="collapsible(this)" class="collapsible">Teamwork</a>
+
+<div id="teamwork">
+  <br/>
+  <br/>
+
+  A team is not required to play the game. It can be nice to get the Team RD or RTG and TBG/TSG rewards, but can also cause trouble while trying to play solo events. If it is too much, do not stay in the team.
+
+  <br/>
+
+  <hr>
+
+  <h3>Team Battleground</h3>
+
+  <ul>
+  <li>Opponent: Human
+  </li>
+  <li>All Decks: Random cards from 1-3 tiers
+  </li>
+  <li>Max 15 attacks/times attacked per player
+  </li>
+  <li>15k points max per team
+  </li>
+  <li>FQ Loss Prevention
+  </li>
+  <li>Max Reward: Team deck tier
+  </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  Random decks usually suck, so this is best for teams that cannot build a good deck for TSG. Often run either during events, like Team or Solo RD/RTG when players will grind anyways and it will not be hard to get charges, or between them so players have time to concentrate on the events instead.
+
+  <br/>
+  <br/>
+
+  For max points use FQ to prevent losses. The weakest teammates should attack weakest opponents, and strongest vs strongest. With no activity log it is hard to tell when someone with a strong deck is beating on weak opponents and screwing the team, but the point totals can give it away.
+
+  <br/>
+
+  <hr>
+
+  <h3>Team Stomping Grounds</h3>
+
+  <ul>
+  <li>Opponent: Human
+  </li>
+  <li>Max Energy: 5
+  </li>
+  <li>Energy Regen: 10min
+  </li>
+  <li>Max Reward: 2x Exclusive Draft Pick
+  </li>
+  </ul>
+  
+  <br/>
+  <br/>
+
+  I have not played enough to develop a full strategy yet as my team has not run many, but it is obviously better than TBG. With an easily modifiable deck that <em>can be</em> guaranteed powerful it will be much more reasonable for a strong team. Try to build a balanced deck full of potential tag teams; neutral and incompatible teams will inevitably cause losses.
+
+ <br/>
+ <br/>
+
+  Try to fill one bar/star at a time rather than hitting all of them, unless your team is going to be active enough to fill at least 2 of them so that the third won  not be a waste.
+
+  <br/>
+
+</div>
+
+<hr>
+
+<a name="resourceManagment" onclick="collapsible(this)" class="collapsible">Resource Management</a>
+
+<div id="resourceManagment">
+  <br/>
+
+  <h3>Draft Picks</h3>
+
+  There is no right or wrong way to pull draft picks from any board (regular, T/RD, Exclusive). If you develop some way that works for you, run with it - every method I have tried seems to have roughly equal chances of pulling a reset from the board.
+
+  <br/>
+  <br/>
+
+  If you are pulling picks looking for something in particular and you are not finding it, stop and do something else. Whether that means playing a different mode for a few minutes or not playing at all. Save the picks, come back later and try again - your RNG can change over time. If you are pulling picks and getting fast resets or anything else useful though, obviously it may be worth it to continue even if it is not exactly what you wanted.
+
+  <br/>
+  <br/>
+
+  As with many digital games with random rewards, this game has implemented a pity mechanism. After you have pulled enough Draft Board resets and not gotten a card of your current Top 8 tier, you are guaranteed to get a random one from your next reset.
+
+  <br/>
+  <br/>
+
+  There is also a guaranteed tier card after reaching a new tier you have not been at before (but not the + or ++, which only give a better chance at getting one).
+
+  <br/>
+
+  <hr>
+
+  <h3>Dust, Dusting, Dusty Rhodes?</h3>
+
+  When dusting cards it is best to look through one page at a time and ensure that nothing you want to keep is selected, for example top-tier cards and event cards. The game may expand their recent addition of new cards and cards that are new pros not being selected during this process, but that is only a rumor currently.
+
+  <br/>
+  <br/>
+
+  Dusting Dusty may be a dust crime.
+
+  <br/>
+
+  <hr>
+
+  <h3>Cards</h3>
+
+  Keep the Superstar and Support cards that are in use or useable once they  are pro locked, and lock new stuff that is worth keeping. Customer Support will only return <em>one card</em> one time; after that there is no help for a mistake. Naturally, also go through the locked cards occasionally and clean out what is become garbage or anything that was accidentally locked.
+
+  <br/>
+  <br/>
+
+  When Training, it helps to filter by tier so it is easier to use the Select All option on a bunch of junk at once, and then look through quick to ensure nothing that should be saved is used.
+
+  <br/>
+  <br/>
+
+  Enhancement cards are only useful for Training, so if you  are careful enough while Training cards then they  are not worth locking.
+  
+  <br/>
+  <br/>
+
+  Holiday Fusion Ingredients are special cards. They are not locked by default, and won  not get selected while dusting, nor while Training (even after the event finishes -- <em>hunt them down, Guardian</em>).
+
+  <br/>
+
+  <hr>
+
+  <h3>Currencies</h3>
+
+  SuperCoins are easily gained, but can be burned much faster. Their best use is the top-tier PLE (Paid Live Event) cards early to around midway into a tier and the 25x Draft Picks at any time, though there can be some luck with the 1-4k SC packs and there are some nice limited-edition pics on the Special Edition (SE) cards.
+
+  <br/>
+  <br/>
+
+  Draft Picks are a preferable buy because of the potential to get Point Doublers/Collectibles/dust/TBG Charges/KotR Energy, and the draft board resets that lead to tier pulls.
+
+  <br/>
+  <br/>
+
+  Credits are rare enough they should be saved for getting guaranteed rewards unless you  are paying for them and do not have to care.
+
+  <br/>
+
+  <hr>
+
+  <h3>Rewards</h3>
+
+  Rewards that come through the in-game Mail with an expiration on them can be saved, and some can upgrade to contain cards from a tier that was unreleased when they were given (?). Exclusive Draft Pick rewards are especially worth stockpiling to prepare for this.
+
+  <br/>
+
+  <hr>
+
+  <h3>Point/Pick Doublers</h3>
+
+    A special card that doubles the points and/or draft picks from a game of T/RD or T/RTG. They can be found on the regular draft board or bought with Credits.
+
+    <br />
+    <br />
+
+    If you have 1+ it will be activated automatically and cannot be deactivated. If you have 0 Doublers and find one on the draft board it will not be activated automatically because of an old bug. Returning to the start page of the game (not the main menu) and coming back in to the game, or just playing a game in any mode normally, will cause it to activate.
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+
+
+<script type="text/javascript">
+function collapsible (a) {
+  const el = document.getElementById(a.attributes.name.nodeValue)
+
+  if (el.style.display === 'none') {
+    el.style.display = 'block'
+    a.classList.toggle('collapsible')
+    a.classList.toggle('expanded')
+  } else {
+    el.style.display = 'none'
+    a.classList.toggle('collapsible')
+    a.classList.toggle('expanded')
+  }
+}
+
+function updateFontFace (f) {
+  document.body.style.fontFamily = f;
+}
+
+function updateFontSize (s) {
+  document.body.style.fontSize = s + 'px'
+}
+
+function updateFontWeight (n) {
+  document.body.style.fontWeight = n;
+}
+
+function updateTheme (t) {
+  if (t === 'light') {
+    document.body.style.background = 'linear-gradient(white, rgb(238, 238, 238), white)'
+    document.body.style.color = 'rgb(10, 10, 10)'
+
+    Array.from(document.getElementsByTagName('hr')).forEach(function (hr) {
+      hr.className = 'light'
+    })
+  } else {
+    document.body.style.background = 'linear-gradient(black, rgb(10, 10, 10), black)'
+    document.body.style.color = 'white'
+
+    Array.from(document.getElementsByTagName('hr')).forEach(function (hr) {
+      hr.className = 'dark'
+    })
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function collapseOnLoad (ev) {
+  const arr = Array.from(document.querySelectorAll('a.collapsible'))
+
+  for (a of arr) {
+    collapsible(a)
+  }
+})
+</script>
+</body>
+</html>
