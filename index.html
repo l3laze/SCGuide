@@ -8,7 +8,7 @@
       margin-left: 10%;
       color: white;
       font-family: Times;
-      font-weight: 500;
+      font-weight: 100;
       line-height: 1.4em;
       background-image: linear-gradient(black, rgb(10, 10, 10), black);
     }
@@ -44,7 +44,7 @@
     }
 
     blockquote {
-      font-size: 1.35em;
+      font-size: 1.1em;
     }
 
     li {
@@ -62,10 +62,11 @@
     }
 
     a.collapsible, a.expanded {
-      text-decoration: underline;
       font-size: 20px;
       font-weight: 600;
       user-select: none;
+      text-decoration: none;
+      color: inherit;
     }
 
     .collapsible:after {
@@ -91,6 +92,10 @@
     .dark {
       border: 1px solid white;
     }
+
+    #fontControls {
+      user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -112,7 +117,11 @@
 
   <br/>
 
-  <small>This is designed for use in Chrome.</small>
+  <small>Made for Chrome</small>
+
+  <br/>
+
+  <small>Built with <span style="color:red;font-size:1.5em">&hearts;</span> by l3l_aze</small>
 
   <hr>
 </blockquote>
@@ -136,7 +145,7 @@
 
   <label for="fontFaceList">Font Face</label>
 
-  <select id="fontFaceList" onchange="updateFontFace(this.options[this.options.selectedIndex].text)">
+  <select id="fontFaceList" onchange="updateFontFace(this.value)">
     <option>Arial</option>
     <option>Calibri</option>
     <option>Courier</option>
@@ -152,19 +161,9 @@
   <label for="fontSize">Font Size (px)</label>
   <input type="number" step="1" min="1" max="48" id="fontSize" value="16" onchange="updateFontSize(this.value)"/>
 
-  <label for="fontWeight">Font Weight</label>
-  <select id="fontWeight" onchange="updateFontWeight(this.value)">
-    <option>100</option>
-    <option>200</option>
-    <option>300</option>
-    <option>400</option>
-    <option>450</option>
-    <option selected>500</option>
-    <option>549</option>
-    <option>550</option>
-    <option>600</option>
-    <option>700</option>
-    <option>800</option>
+  <label for="fontBold" >Bold</label>
+  <input type="checkbox" id="fontBold" onchange="updateFontBold(this.checked)">
+    
   </select>
 
 </div>
@@ -172,7 +171,7 @@
 <br/>
 <br/>
 
-<a name="terminology" onclick="collapsible(this)" class="collapsible">Terminology</a>
+<a name="terminology" href="#terminology" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Terminology</a>
 
 <div id="terminology">
   <br/>
@@ -195,7 +194,7 @@
 
 <hr>
 
-<a name="importantCards" onclick="collapsible(this)" class="collapsible">Important Info About Cards</a>
+<a name="importantCards" href="#infoCards" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Important Info About Cards</a>
 
 <div id="importantCards">
   <br/>
@@ -311,7 +310,7 @@
 
 <hr>
 
-<a name="importantGame" onclick="collapsible(this)" class="collapsible">About The Game (not HHH)</a>
+<a name="importantGame" href="#infoGame" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">About The Game (not HHH)</a>
 
 <div id="importantGame">
   <br/>
@@ -377,7 +376,7 @@
 
 <hr>
 
-<a name="growth" onclick="collapsible(this)" class="collapsible">Steps To Growth</a>
+<a name="growth" href="#growth" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Steps To Growth</a>
 
 <div id="growth">
   <br/>
@@ -422,7 +421,7 @@
 
 <hr>
 
-<a name="pveModes" onclick="collapsible(this)" class="collapsible">PvE Modes</a>
+<a name="pveModes" href="#pve" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">PvE Modes</a>
 
 <div id="pveModes">
   <br/>
@@ -550,7 +549,7 @@
 
 <hr>
 
-<a name="pvpModes" onclick="collapsible(this)" class="collapsible">PvP Modes</a>
+<a name="pvpModes" href="#pvp" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">PvP Modes</a>
 
 <div id="pvpModes">
   <br/>
@@ -707,7 +706,7 @@
 
 <hr>
 
-<a name="events" onclick="collapsible(this)" class="collapsible">Events</a>
+<a name="events" href="#events" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Events</a>
 
 <div id="events">
   <br/>
@@ -967,7 +966,7 @@
 
 <hr>
 
-<a name="teamwork" onclick="collapsible(this)" class="collapsible">Teamwork</a>
+<a name="teamwork" href="#teamwork" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Teamwork</a>
 
 <div id="teamwork">
   <br/>
@@ -1039,7 +1038,7 @@
 
 <hr>
 
-<a name="resourceManagment" onclick="collapsible(this)" class="collapsible">Resource Management</a>
+<a name="resourceManagment" href="#resources" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Resource Management</a>
 
 <div id="resourceManagment">
   <br/>
@@ -1169,8 +1168,12 @@ function updateFontSize (s) {
   document.body.style.fontSize = s + 'px'
 }
 
-function updateFontWeight (n) {
-  document.body.style.fontWeight = n;
+function updateFontBold (b) {
+  if (b) {
+    document.body.style.fontWeight = 600
+  } else {
+    document.body.style.fontWeight = 100
+  }
 }
 
 function updateTheme (t) {
