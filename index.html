@@ -359,7 +359,7 @@
   <br/>
   <br/>
 
-  Regular and low-ranked Event cards are similar in stats to default cards. Half-heroic have stats similar to Fusion and SE cards. Fully heroic and high-ranked Event cards have stats similar to default cards from the tier above theirs.
+  Non-heroic, Fusion, and low-ranked Event cards have just slightly-higher stats than default cards. Half-heroic and SE have stats a bit higher than those. Finally, Heroic and high-ranked Event cards have stats similar to default cards from the tier above theirs.
 
   <br/>
   <br/>
@@ -682,17 +682,17 @@
   <br/>
   <br/>
 
-  At the start of the game, players each place a Table (2x1 blocks), Ladder (3x1 blocks), and Chair (1 block) on a 4x4 grid. Then each players deck is split into 6 defending cards and 10 attacking cards, and players are dealt a hand of 6 starting cards. Players then take turns picking a block, and if the block is part of one of the objects, then play a match and win to reveal that block.
+  At the start of the game, players each place a Table (2x1 blocks), Ladder (3x1 blocks), and Chair (1 block) on a 4x4 grid. Then each players deck is split into 6 defending cards and 10 attacking cards, and players are dealt a hand of 6 starting cards. Players then take turns picking a block, and if the block is part of one of the objects, play a match and if they win it reveals that block.
   
   <br/>
   <br/>
   
-  Once an entire object is revealed it is destroyed and gives a pack as a reward. If a player destroys all of their opponents objects in the ring they win, if both do it in the same round it is a tie, and if a player runs out of cards they lose. During a players turn they can forfeit, but the rewards are even worse than a loss. 
+  Once an entire object is revealed it is destroyed and gives a pack as a reward. If a player destroys all of their opponents objects first they win, if both do it in the same round it is a tie, and if a player runs out of cards they lose. During a players turn they can forfeit, but the rewards are even worse than a loss.
 
   <br/>
   <br/>
 
-  The animations for the matchups in TLC give a clue what the object found is. It is not useful as it will not affect the outcome, but it's really cool that the designers and developers included this level of detail.
+  The animations for the matchups in TLC give a clue what the object found is. It is not very useful as it will not affect the outcome, but it's really cool that the designers and developers included this level of detail.
 
   <br/>
   <br/>
@@ -702,7 +702,7 @@
   <br/>
   <br/>
 
-  The randomizer that will place the objects for you uses some terrible patterns. Better to experiment and discover ways to place your objects by playing, and using a different one in each game. Any layout can have success sometimes vs opponents who are not trying very hard, but only a truly good layout will be difficult for the majority of opponents.
+  The randomizer that will place the objects for you uses some terrible patterns. Better to experiment and discover ways to place your objects by playing. Any layout can have success sometimes vs opponents who are not trying very hard, but only a truly good layout will be difficult for the majority of opponents.
 
   <br/>
   <br/>
@@ -855,7 +855,7 @@
   <br/>
   <br/>
 
-  At the beginning of each round both players are dealt 4 cards from their deck. At the beginning of the last round the 2 Action Support are refreshed.
+  At the beginning of each round both players are dealt 4 cards from their deck.
 
   <br/>
   <br/>
@@ -891,7 +891,7 @@
     <li>FQ Energy Saver/Loss Prevention</li>
     <li>Rounds: 3</li>
     <li>Matches: 1</li>
-    <li>Enemy: Raid Boss</li>
+    <li>Enemy: Giant (MMORPG-style Raid Boss)</li>
     <li>Deck: Top 4x of each Alignment of male or female Superstars</li>
     <li>Max Reward: Grind-based</li>
     <li>Top-tier Event Card base</li>
@@ -1008,6 +1008,8 @@
   <br/>
 
   <ul>
+    <li>Rounds: 4</li>
+    <li>Matches: 1</li>
     <li>Enemy: Mirror</li>
     <li>Deck: Top 4x of each Alignment of male or female Superstars</li>
     <li>Max Reward: Ranked Event Card pro (one card); Grind-based</li>
@@ -1015,9 +1017,92 @@
 
   <br/>
 
-  A balanced deck is best, because again the enemies are Mirror. An assistant can help remember what you have tried previously across multiple attempts: <a href="https://l3laze.github.io/toys/cb_assist">Code Breaker Assistant</a>. Could be done with pen/cil and paper, this is just easier because I am a lazy nerd.
+  A balanced deck is best, because yet again the enemies are Mirror. An assistant can help remember what you have tried previously across multiple attempts: <a href="https://l3laze.github.io/toys/cb_assist">Code Breaker Assistant</a> (based on <a href="https://github.com/nebupookins/JS-Mastermind-Solver/">JS-Mastermind-Solver by nebupookins</a>). Could be done with pen/cil and paper, this is just easier because I am a lazy nerd.
 
   <br/>
+  <br/>
+
+  Strangest mode in the game, similar to the <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)">Mastermind</a> board game. Cards are dragged from a face-up deck for each alignment arrow into one of four slots in each round in an attempt to guess what the code is for that level. To the right of the 4 slots for each round are a small scoreboard; the top is the number of arrows that are a part of the code and are in the right slot (correct, checkmark on the scoreboard), and the bottom is the number of arrows that are a part of the code but are in the wrong spot (misplaced, circle shape on scoreboard). Arrows that are not a part of the code are 0 points for each of correct and misplaced scores.
+
+  <br/>
+  <br/>
+
+  After guessing a code our cards fight the opposing cards, and for each match fought we get points with more for a win. Enemy stats can be "inflated" for rounds 1-3, and are insane in round 4. If you solve the code before the final round it will skip to the final round and give bonus points for each round skipped. Finishing a level by solving the code also gives points.
+
+  <br/>
+  <br/>
+
+  In the final round any cards in the correct spot will severely weaken the opponents who otherwise get a massive stat boost, and it makes winning the match much easier. Any part that's correct in the final round is also noted by the game itself, so rather than a ? in that slot of the code displayed above the playing area it will be the known-correct arrow. We can still use the wrong arrow in that slot though, but that's not a good idea unless you can somehow afford to use 2 or more energy per 1 level.
+
+  <br/>
+  <br/>
+
+  <b>Manual play cycle</b>
+
+  <ul>
+    <li>Round 1: Throw 4x of one alignment, any points correct or misplaced mean there are that many of that alignment in the final code.</li>
+    <li>Round 2: Throw only the number of arrows equal to points in round 1, and fill the rest with a second alignment. Because any that were correct in round 1 can be out of place this often leads to 1+ correct and 1+ in the wrong place, but these are clues for the final code.</li>
+    <li>Round 3: Throw the known-good arrows from round 1 and 2 out again, attempting to guess where they are correct based on the clues so far. Again, fill the rest with another arrow, and note any clues given.</li>
+    <li>Round 4: Take a crack at solving.</li>
+  </ul>
+
+  <br/>
+  <br/>
+
+Refresher items that "heal" Superstars are uncommon-rare except those that are guaranteed from free packs. They are best saved for the final round as the Superstar will otherwise be damaged and render the Refresher wasted. It would also be a waste to start using them immediately as the point totals are so low.
+
+<br/>
+<br/>
+
+Use Refreshers only in the final round while the code is solved AND a Superstar is too weak to beat the weakened enemy in the final round or has at least 1 weak stat and the enemy has Reversal. Only rely on Techniques to give buffs and prevent loss if you don't have Refreshers or are buying energy anyways and don't have to care.
+
+<br/>
+<br/>
+
+Doublers are similarly not good to use too early because the point totals are so low. Better to wait until reaching at least level 10 before starting to use them, unless you are going to whale and don't care about the slight waste. Whale or not, if you're going hardcore it would not be unreasonable to wait longer before starting to use Doublers. This will require some effort (math, preferably) to determine how many levels you expect to beat and how many Doublers you are willing to buy. Then figure out where the N Doublers can fit in as far into the levels as possible (without risking them getting wasted from the event ending) for maximum points.
+
+<br/>
+<br/>
+
+<div class="line"></div>
+
+<br/>
+
+<h3>In Your House</h3>
+
+<ul>
+  <li>Rounds: 3</li>
+  <li>Matches: 1</li>
+  <li>Enemy: Small Giants (MMORPG-style Mini-Bosses)</li>
+  <li>Deck: Top 4x of each Alignment of male or female Superstars</li>
+  <li>Max Reward: Chance at top 3 tiers of cards (SE or regular); Grind-based</li>
+</ul>
+
+<br/>
+
+It's effectively Giants Unleashed: Personal Edition. Important differences are the personal-sized enemies, use of event-based Collectibles like snowballs or movie reels (which can be bought with Credits or picked off the Draft Board) to fight instead of Energy, and it gives rewards immediately after fighting an opponent rather than after the event ends. In the most recent iteration (RTWM in March 2023), 1-3 Collectibles could be used on top of the cost of fighting an enemy to give a 25/50/75% stat boost to our entire deck. Slightly larger boom.
+
+<br/>
+<br/>
+
+The cost to fight enemies and size of them scales with progression, and there are larger mini-bosses periodically which give better rewards than the smalls between them. Rewards also scale and the best stuff is at the final boss, but the odds of getting those best rewards still aren't great. Because of this the most efficient way to farm rewards, if you choose to try to do so, would be to reach the highest mini-boss you believe you can.
+
+<br/>
+<br/>
+
+Your expected reach will have to be estimated based on the cost to fight the first mini-boss and the little ones along the way, along with how hard you're going to be grinding to farm Collectibles. If you're struggling to find free Collectibles from the Draft Board to be able to fight then it's probably not worth trying to farm rewards.
+
+<br/>
+<br/>
+
+If the "Little Giants" of IYH are too strong to fight it is more efficient to either buy the most expensive reward in the Collectibles Store (Main menu -> Store -> Collectibles) if you have enough AND the potential cards can help you grow and you're feeling lucky, or buy the 5-25x Draft Picks instead if the cards are too weak to be helpful anyways.
+
+<br/>
+<br/>
+
+The Collectibles Store is open for a few days after Collectibles can be picked off the Draft Board, so there's time to dump them for picks/packs/etc after if you are busy elsewhere and skip this event. Card backs from Collectibles store are usually pretty nice, and don't cost very much (25 Collectibles in RTWM).
+
+<br/>
 
 </div>
 
@@ -1436,7 +1521,7 @@ window.addEventListener('DOMContentLoaded', function collapseOnLoad (ev) {
   const arr = Array.from(document.querySelectorAll('a.collapsible'))
 
   for (a of arr) {
-    collapsible(a)
+    // collapsible(a)
   }
 })
 </script>
