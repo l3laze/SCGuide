@@ -1,102 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+<head><meta charset="utf-8">
   <title>WWE SuperCard Guide</title>
-  <style>
-    body {
-      width: 80%;
-      margin-left: 10%;
-      color: white;
-      font-family: Times;
-      font-weight: 100;
-      line-height: 1.4em;
-      background-image: linear-gradient(black, rgb(10, 10, 10), black);
-    }
-
-    h1, blockquote {
-      font-family: sans-serif;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    #fontControls {
-      font-family: sans-serif;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    h3 {
-      text-align: center;
-    }
-
-    hr {
-      border: 1px solid white;
-      margin-top: 3em;
-      margin-bottom: 3em;
-    }
-
-    h1 {
-      font-size: 3.6em;
-    }
-
-    h2 {
-      font-size: 1.2em;
-    }
-
-    blockquote {
-      font-size: 1.1em;
-    }
-
-    li {
-      line-height: 1.5em;
-    }
-
-    div {
-      width: 80%;
-      margin-left: 5%;
-    }
-
-    div hr {
-      width: 40%;
-      height: 0px;
-    }
-
-    a.collapsible, a.expanded {
-      font-size: 20px;
-      font-weight: 600;
-      user-select: none;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .collapsible:after {
-      content: "\2796"; /* Unicode - */
-      font-size: 13px;
-      float: left;
-      margin-right: 1em;
-      margin-top: 0.1em;
-    }
-
-    .expanded:after {
-      content: '\02795'; /* Unicode + */
-      font-size: 13px;
-      float: left;
-      margin-right: 1em;
-      margin-top: 0.1em;
-    }
-
-    .light {
-      border: 1px solid black;
-    }
-
-    .dark {
-      border: 1px solid white;
-    }
-
-    #fontControls {
-      user-select: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tools for the game WWE SuperCard.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -105,32 +13,27 @@
 <blockquote>
   <br/>
   
-  This guide contains a mixture of facts and experience-based opinions.
+  This guide contains a mixture of facts and opinions.
 
   <br/>
   <br/>
 
-  I am not affiliated with WWE SuperCard in any way.
+  This web site is not endorsed by, directly affiliated with, maintained, authorized, or sponsored by Endeavor Group Holdings, Inc; WWE; 2K; Take-Two Interactive Software; or Cat Daddy Games. All product and company names are the registered trademarks of their original owners. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.
+
+All WWE images, likenesses, slogans, trademarks, logos and copyrights are the exclusive property of WWE and its subsidiaries. All other trademarks, logos and copyrights are the property of their respective owners.
 
   <br/>
   <br/>
 
   <br/>
 
-  <small>Made for Chrome</small>
+  <small>Built with <span style="color:red">&hearts;</span> by <a href="https://github.com/l3laze">l3l_aze</a>. Made for Chrome.</small>
 
-  <br/>
-
-  <small>Built with <span style="color:red;font-size:1.5em">&hearts;</span> by l3l_aze</small>
-
-  <hr>
+  <div class="line"></div>
 </blockquote>
 
 <div id="fontControls">
-  Theme Controls
-
-  <br/>
-  <br/>
+  <h2>Theme Controls</h2>
 
   <label for="dark">
     <input type="radio" name="theme" id="dark" onchange="updateTheme('dark')" checked>
@@ -141,7 +44,7 @@
     Light
   </label>
 
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;
 
   <label for="fontFaceList">Font Face</label>
 
@@ -158,17 +61,21 @@
     <option>Verdana</option>
   </select>
 
-  <label for="fontSize">Font Size (px)</label>
-  <input type="number" step="1" min="1" max="48" id="fontSize" value="16" onchange="updateFontSize(this.value)"/>
+  <br/>
+  <br/>
 
-  <label for="fontBold" >Bold</label>
-  <input type="checkbox" id="fontBold" onchange="updateFontBold(this.checked)">
-    
+  <label for="fontBold" >&nbsp;<input type="checkbox" id="fontBold" onchange="updateFontBold(this.checked)">&nbsp;Bold</label>
+
+  &nbsp;
+
+  <label for="fontSize">Font Size (px)</label>
+
+  <input type="number" step="1" min="1" max="48" id="fontSize" value="16" onchange="updateFontSize(this.value)" />
+  
   </select>
 
 </div>
 
-<br/>
 <br/>
 
 <a name="terms" href="#terms" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Terms</a>
@@ -181,7 +88,7 @@
     <li>Balanced Deck: All cards have similar stats.</li>
     <li>Feeder: A junk card.</li>
     <li>Alignment: The up/down/left/right arrow on cards.</li>
-    <li>Base: The basic form of a card.</li>
+    <li>Base, Single: The basic form of a card.</li>
     <li>Knockout: When any stat reaches 0 that card is removed from the game. Only used in some game modes.</li>
     <li>Opponent: Player you are against. Human, AI, or mixed.</li>
     <li>Enemy: Opponents card.</li>
@@ -192,24 +99,23 @@
   </ul>
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="theCards" href="#theCards" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">The Cards</a>
 
 <div id="theCards">
-  <br/>
   <br/>
 
   <h3>Superstars</h3>
 
   <br/>
 
-  Superstars are the most important. They have stats for Power/Toughness/Speed/Charisma (POW/TGH/SPD/CHA) and an Alignment arrow. They also have an Ability named after their special/finisher move, which boosts 2 stats if it triggers.
+  Superstars are the most important. They have stats for Power, Toughness, Speed, Charisma (POW, TGH, SPD, CHA) and an Alignment arrow. They also have an Ability named after their signature move, which increases 2 of their stats if it triggers.
 
   <br/>
   <br/>
 
-  Superstars start at level 0 and can reach a maximum of level 100. Each level will increase their stats and the effect of their Ability slightly. Superstars also have the special stat called matches played, which is how many times they have fought in the ring. Matches played increases stats and Ability effect too, but much less than levels.
+  Superstars start at level 0 and can reach a maximum of level 100. Each level will increase their stats and the affect of their Ability slightly. Superstars also have the special stat called matches played, which is how many times they have fought in the ring. Matches played increases their stats and Ability effect too, but much less than levels.
 
   <br/>
   <br/>
@@ -257,12 +163,12 @@
   <br/>
   <br/>
 
-  Finally, if a Superstar currently has a Championship in real life it will be displayed as an icon on their card(s). Each Championship gives a % chance and stat boost to the Superstars ability.
+  If a Superstar currently has any of the Championships that are in the game in real life, one will be displayed as an icon that looks like the given Title on their card(s) in the game. Each Championship gives a bonus to Trigger % and stats of the Superstars Ability, and seem to stack for multiple (Roman Reigns as Universal Champion, for example). Champions are updated within 72 hours after the Title holder changes.
 
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Equipment</h3>
   
@@ -278,7 +184,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Supports</h3>
 
@@ -308,7 +214,7 @@
   
   <br/>
 
-<hr>
+<div class="line"></div>
 
 <h3>Pro Superstar and Support</h3>
 
@@ -338,9 +244,30 @@
 
   <br/>
 
+<div class="line"></div>
+
+<h3>Rarity Tiers, Special Cards</h3>
+
+  <br/>
+
+  Cards come in different rarities called tiers, and higher tiers are stronger than lower ones by a small % (max 15%?). This means there's always a massive difference between the lowest and highest tier. The good thing about this is that pros at tier N are about equal to singles at tier N + 1, which helps create a natural progression cycle.
+
+  <br/>
+  <br/>
+
+  There are also a variery of special cards that are extra-powerful within each tier, each with different methods to acquiring them. They are Event (Regular/Half-Heroic/Heroic and Ranked), Special Edition (including Paid Live Event-based), and Fusion.
+
+  <br/>
+  <br/>
+
+  Non-heroic, Fusion, and low-ranked Event cards have just slightly-higher stats than default cards. Half-heroic and SE have stats a bit higher than those. Finally, Heroic and high-ranked Event cards have stats similar to default cards from the tier above theirs.
+
+  <br/>
+  <br/>
+
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="singlePlayer" href="#singlePlayer" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Single Player</a>
 
@@ -399,7 +326,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Royal Rumble</h3>
 
@@ -455,7 +382,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Elimination Chamber</h3>
 
@@ -486,7 +413,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Money In The Bank</h3>
 
@@ -541,7 +468,7 @@
 
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="multiplayer" href="#multiplayer" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Multiplayer</a>
 
@@ -588,7 +515,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Tag Team Takedown</h3>
 
@@ -608,8 +535,12 @@
   <br/>
   <br/>
 
-  In this mode players are paired up either by using the invite system to team up with someone they know in the game, or randomly. At the start of each round one players deck is chosen for each side, and each player on that team is dealt 6 cards from it to use that round. Next the matchup stat is chosen, and both players from each team choose a card to use in the match. Players choose one at a time so that they can see their partners choice before they choose a card when going second. Damage dealt to cards does not knock them out though. 
-  The first team to 5 points wins the round.
+  In this mode players are paired up either by using the invite system to team up with someone they know in the game, or randomly. At the start of each round one players deck is chosen for each side, and each player on that team is dealt 6 cards from it to use that game.
+  
+  <br/>
+  <br/>
+  
+  Next the matchup stat is chosen, and both players from each team choose a card to use in the match. Players choose one at a time so that they can see their partners choice before they choose a card when going second. Damage dealt to cards does not knock them out though. The first team to 5 points wins the round.
 
   <br/>
   <br/>
@@ -629,12 +560,12 @@
   <br/>
   <br/>
 
-  If you have a card that is damaged on at least 1 stat which is NOT part of the current matchup AND it was a good tag team previously, use it! Your teammate should realize to tag with it using their card that is damaged, which means you will both be keeping more cards healthy further into the match.
+  If you have a card that is damaged on at least 1 stat which is NOT part of the current matchup AND it was a good tag team previously, use it! Your teammate should realize to tag with it using their card that is damaged, which means you will both keep more cards healthy further into the match.
 
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Tables, Ladders, and Chairs - TLC</h3>
 
@@ -652,12 +583,17 @@
   <br/>
   <br/>
 
-  At the start of the game, players each place a Table (2x1 blocks), Ladder (3x1 blocks), and Chair (1 block) on a 4x4 grid. Then each players deck is split into 6 defending cards and 10 attacking cards, and players are dealt a hand of 6 starting cards. Players then take turns picking a block, and if the block is part of one of the objects, then play a match and win to reveal that block. Once an entire object is revealed it is destroyed and gives a pack as a reward. If a player destroys all of their opponents objects in the ring they win, if both do it in the same round it is a tie, and if a player runs out of cards they lose. During a players turn they can forfeit, but the rewards are even worse than a loss. 
+  At the start of the game, players each place a Table (2x1 blocks), Ladder (3x1 blocks), and Chair (1 block) on a 4x4 grid. Then each players deck is split into 6 defending cards and 10 attacking cards, and players are dealt a hand of 6 starting cards. Players then take turns picking a block, and if the block is part of one of the objects, play a match and if they win it reveals that block.
+  
+  <br/>
+  <br/>
+  
+  Once an entire object is revealed it is destroyed and gives a pack as a reward. If a player destroys all of their opponents objects first they win, if both do it in the same round it is a tie, and if a player runs out of cards they lose. During a players turn they can forfeit, but the rewards are even worse than a loss.
 
   <br/>
   <br/>
 
-  The animations for the matchups in TLC give a clue what the object found is. It is not useful as it will not affect the outcome, but it's really cool that the designers and developers included this level of detail.
+  The animations for the matchups in TLC give a clue what the object found is. It is not very useful as it will not affect the outcome, but it's really cool that the designers and developers included this level of detail.
 
   <br/>
   <br/>
@@ -667,12 +603,12 @@
   <br/>
   <br/>
 
-  The randomizer that will place the objects for you uses some terrible patterns. Better to experiment and discover ways to place your objects by playing, and using a different one in each game. Any layout can have success sometimes vs opponents who are not trying very hard, but only a truly good layout will be difficult for the majority of opponents.
+  The randomizer that will place the objects for you uses some terrible patterns. Better to experiment and discover ways to place your objects by playing. Any layout can have success sometimes vs opponents who are not trying very hard, but only a truly good layout will be difficult for the majority of opponents.
 
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Survivor Series</h3>
 
@@ -688,27 +624,32 @@
   <br/>
   <br/>
 
-  At the start of a game players are randomly dealt a random deck of pairs of 8 bases from a single tier. Of those, 5 are put in the players hand and 11 into a pool of cards that could be called the bench. At the start of a round players choose a card in their hand to give to their opponent. Next the game chooses a matchup, and each player chooses their Superstar(s) to fight in the ring. After 3 matches, if there is a tie, the game will randomly choose a winner. If a player loses 3 rounds they are eliminated.
+  At the start of a game each player is dealt the same pairs of 8 bases from a single tier. Of those, 5 are put in the players hand and 11 into a pool of cards that could be called the bench/locker room/deck. At the start of a round players choose a card in their hand to give to their opponent. Next the game chooses a matchup, and each player chooses their Superstar(s) to fight in the ring. After 3 matches, if there is a tie in points, the game will randomly choose a winner. If a player loses 3 rounds they are eliminated.
 
   <br/>
   <br/>
 
-  After each round players can Combine a pair of bases in hand, Swap a card in hand for one on the bench, or Fortify a pro card with a base in hand (it just says Combine). Pro cards can be swapped to the bench, or given to other players. The game will not automatically do anything between rounds, but will give a random card to the opponent which can be a pro if one exists.
+  After each round players can Combine a pair of bases in hand, Swap a card in hand for a random one in their deck, or Fortify a pro card with a base in hand by using Combine. Pro cards can be swapped to the deck, or given to other players. The game will not automatically do anything between rounds, but will give a random card to the opponent which can be a pro if one exists.
 
   <br/>
   <br/>
 
-  It is better to pro or fortify between rounds than it is to swap a base hoping for something better, because the useless base can still be traded to an opponent. Between rounds if you have no pairs to pro AND you can fortify a pro AND you can not guarantee getting a pair to pro or tag partner by swapping because there are too many cards or you may not get a bye next round, then fortify the pro.
+  It is better to pro or fortify between rounds than it is to swap a useless base hoping for something better, because the useless base can still be traded to an opponent. Between rounds if you have no pairs to pro AND you can fortify a pro AND you can not guarantee getting a pair to pro or tag partner by swapping because there are too many cards or you may not get a bye next round, then fortify the pro.
 
   <br/>
   <br/>
 
-  Drafting 2 opposing tag teams (up/down and left/right) is more reasonable than 2 friendly tag teams (left/right and left/right) because of there being so many players looking for and trading away cards of each Alignment. This also helps keep the 5th Superstar useable, though it is always just a base.
+  Drafting 2 opposing tag teams (up/down and left/right) is more reasonable than 2 friendly tag teams (left/right and left/right) because of there being so many players looking for and trading away cards of each Alignment. This also helps keep the 5th Superstar useable if necessary, even though it is always just a base.
 
   <br/>
   <br/>
 
-  Tag teams that share a single stat among their Abilities have a better chance than a 2- or 4-stat tag team. This is because with only 2 high stats a team will lose on the other 2 stats more easily. A 4-stat tag team spreads the stats too thin and are then more likely to lose in all matchups. With 3 stats among them a tag team will have a harder time in matches based on the missing stat, an easier time in matches based on the shared stat, and an equal chance in matches based on the other two stats.
+  Tag teams that share a single stat among their Abilities have a better chance than a 2- or 4-stat tag team. This is because with only 2 high stats a team will lose on the other 2 stats more easily. A 4-stat tag team spreads the stats too thin and are then more likely to lose in all matchups. With 3 stats among them a tag team will have a hard time in matches based on the missing stat, but an easy time in matches based on the shared stat, and still a chance in matches based on the other two stats.
+
+  <br/>
+  <br/>
+
+  Because legendary superstars have higher stats overall than the lesser-known ones they can sometimes get away with 4-stat tag teams, and will have a slightly better chance in all tag matchups no matter their partner. These are also the cards that are often hardest to pro though, as other players also want to hold onto them. If you don't have a tag partner it is better to swap them with another card in the deck than it is to give them to an opponent.
 
   <br/>
   <br/>
@@ -724,7 +665,7 @@
   <br/>
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="events" href="#events" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Solo Events</a>
 
@@ -736,7 +677,7 @@
 
   <br/>
   
-  <hr>
+  <div class="line"></div>
 
   <h3>Ring Domination</h3>
 
@@ -792,7 +733,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Road To Glory</h3>
 
@@ -815,7 +756,7 @@
   <br/>
   <br/>
 
-  At the beginning of each round both players are dealt 4 cards from their deck. At the beginning of the last round the 2 Action Support are refreshed.
+  At the beginning of each round both players are dealt 4 cards from their deck.
 
   <br/>
   <br/>
@@ -839,7 +780,7 @@
 
   <br/>
   
-  <hr>
+  <div class="line"></div>
 
   <h3>Giants Unleashed</h3>
 
@@ -851,7 +792,7 @@
     <li>FQ Energy Saver/Loss Prevention</li>
     <li>Rounds: 3</li>
     <li>Matches: 1</li>
-    <li>Enemy: Raid Boss</li>
+    <li>Enemy: Giant (MMORPG-style Raid Boss)</li>
     <li>Deck: Top 4x of each Alignment of male or female Superstars</li>
     <li>Max Reward: Grind-based</li>
     <li>Top-tier Event Card base</li>
@@ -875,7 +816,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>War Games</h3>
 
@@ -913,7 +854,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Last Man Standing</h3>
 
@@ -937,7 +878,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Clash of Champions</h3>
 
@@ -961,9 +902,112 @@
 
   <br/>
 
+  <div class="line"></div>
+
+  <h3>Code Breaker</h3>
+
+  <br/>
+
+  <ul>
+    <li>Rounds: 4</li>
+    <li>Matches: 1</li>
+    <li>Enemy: Mirror</li>
+    <li>Deck: Top 4x of each Alignment of male or female Superstars</li>
+    <li>Max Reward: Ranked Event Card pro (one card); Grind-based</li>
+  </ul>
+
+  <br/>
+
+  A balanced deck is best, because yet again the enemies are Mirror. An assistant can help remember what you have tried previously across multiple attempts: <a href="https://l3laze.github.io/toys/cb_assist">Code Breaker Assistant</a> (based on <a href="https://github.com/nebupookins/JS-Mastermind-Solver/">JS-Mastermind-Solver by nebupookins</a>). Could be done with pen/cil and paper, this is just easier because I am a lazy nerd.
+
+  <br/>
+  <br/>
+
+  Strangest mode in the game, similar to the <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)">Mastermind</a> board game. Cards are dragged from a face-up deck for each alignment arrow into one of four slots in each round in an attempt to guess what the code is for that level. To the right of the 4 slots for each round are a small scoreboard; the top is the number of arrows that are a part of the code and are in the right slot (correct, checkmark on the scoreboard), and the bottom is the number of arrows that are a part of the code but are in the wrong spot (misplaced, circle shape on scoreboard). Arrows that are not a part of the code are 0 points for each of correct and misplaced scores.
+
+  <br/>
+  <br/>
+
+  After guessing a code our cards fight the opposing cards, and for each match fought we get points with more for a win. Enemy stats can be "inflated" for rounds 1-3, and are insane in round 4. If you solve the code before the final round it will skip to the final round and give bonus points for each round skipped. Finishing a level by solving the code also gives points.
+
+  <br/>
+  <br/>
+
+  In the final round any cards in the correct spot will severely weaken the opponents who otherwise get a massive stat boost, and it makes winning the match much easier. Any part that's correct in the final round is also noted by the game itself, so rather than a ? in that slot of the code displayed above the playing area it will be the known-correct arrow. We can still use the wrong arrow in that slot though, but that's not a good idea unless you can somehow afford to use 2 or more energy per 1 level.
+
+  <br/>
+  <br/>
+
+  <b>Manual play cycle</b>
+
+  <ul>
+    <li>Round 1: Throw 4x of one alignment, any points correct or misplaced mean there are that many of that alignment in the final code.</li>
+    <li>Round 2: Throw only the number of arrows equal to points in round 1, and fill the rest with a second alignment. Because any that were correct in round 1 can be out of place this often leads to 1+ correct and 1+ in the wrong place, but these are clues for the final code.</li>
+    <li>Round 3: Throw the known-good arrows from round 1 and 2 out again, attempting to guess where they are correct based on the clues so far. Again, fill the rest with another arrow, and note any clues given.</li>
+    <li>Round 4: Take a crack at solving.</li>
+  </ul>
+
+  <br/>
+  <br/>
+
+Refresher items that "heal" Superstars are uncommon-rare except those that are guaranteed from free packs. They are best saved for the final round as the Superstar will otherwise be damaged and render the Refresher wasted. It would also be a waste to start using them immediately as the point totals are so low.
+
+<br/>
+<br/>
+
+Use Refreshers only in the final round while the code is solved AND a Superstar is too weak to beat the weakened enemy in the final round or has at least 1 weak stat and the enemy has Reversal. Only rely on Techniques to give buffs and prevent loss if you don't have Refreshers or are buying energy anyways and don't have to care.
+
+<br/>
+<br/>
+
+Doublers are similarly not good to use too early because the point totals are so low. Better to wait until reaching at least level 10 before starting to use them, unless you are going to whale and don't care about the slight waste. Whale or not, if you're going hardcore it would not be unreasonable to wait longer before starting to use Doublers. This will require some effort (math, preferably) to determine how many levels you expect to beat and how many Doublers you are willing to buy. Then figure out where the N Doublers can fit in as far into the levels as possible (without risking them getting wasted from the event ending) for maximum points.
+
+<br/>
+<br/>
+
+<div class="line"></div>
+
+<br/>
+
+<h3>In Your House</h3>
+
+<ul>
+  <li>Rounds: 3</li>
+  <li>Matches: 1</li>
+  <li>Enemy: Small Giants (MMORPG-style Mini-Bosses)</li>
+  <li>Deck: Top 4x of each Alignment of male or female Superstars</li>
+  <li>Max Reward: Chance at top 3 tiers of cards (SE or regular); Grind-based</li>
+</ul>
+
+<br/>
+
+It's effectively Giants Unleashed: Personal Edition. Important differences are the personal-sized enemies, use of event-based Collectibles like snowballs or movie reels (which can be bought with Credits or picked off the Draft Board) to fight instead of Energy, and it gives rewards immediately after fighting an opponent rather than after the event ends. In the most recent iteration (RTWM in March 2023), 1-3 Collectibles could be used on top of the cost of fighting an enemy to give a 25/50/75% stat boost to our entire deck. Slightly larger boom.
+
+<br/>
+<br/>
+
+The cost to fight enemies and size of them scales with progression, and there are larger mini-bosses periodically which give better rewards than the smalls between them. Rewards also scale and the best stuff is at the final boss, but the odds of getting those best rewards still aren't great. Because of this the most efficient way to farm rewards, if you choose to try to do so, would be to reach the highest mini-boss you believe you can.
+
+<br/>
+<br/>
+
+Your expected reach will have to be estimated based on the cost to fight the first mini-boss and the little ones along the way, along with how hard you're going to be grinding to farm Collectibles. If you're struggling to find free Collectibles from the Draft Board to be able to fight then it's probably not worth trying to farm rewards.
+
+<br/>
+<br/>
+
+If the "Little Giants" of IYH are too strong to fight it is more efficient to either buy the most expensive reward in the Collectibles Store (Main menu -> Store -> Collectibles) if you have enough AND the potential cards can help you grow and you're feeling lucky, or buy the 5-25x Draft Picks instead if the cards are too weak to be helpful anyways.
+
+<br/>
+<br/>
+
+The Collectibles Store is open for a few days after Collectibles can be picked off the Draft Board, so there's time to dump them for picks/packs/etc after if you are busy elsewhere and skip this event. Card backs from Collectibles store are usually pretty nice, and don't cost very much (25 Collectibles in RTWM).
+
+<br/>
+
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="team" href="#team" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Team</a>
 
@@ -975,7 +1019,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Team Ring Domination (TRD)</h3>
 
@@ -1014,7 +1058,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Team Road To Glory (TRTG)</h3>
 
@@ -1044,7 +1088,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Team Battleground (TBG)</h3>
 
@@ -1069,7 +1113,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Team Stomping Grounds (TSG)</h3>
 
@@ -1087,7 +1131,7 @@
   <br/>
   <br/>
 
-  I have not played enough to develop a full strategy yet as my team has not run many, but it is obviously better than TBG. With an easily modifiable deck that <em>can be</em> guaranteed powerful it will be much more reasonable for a strong team. Try to build a balanced deck full of potential tag teams; neutral and incompatible teams will inevitably cause losses.
+  I have not played enough to develop a full strategy yet as my team has not run many, but it is obviously better than TBG. With an easily modifiable deck that can be guaranteed powerful it will be much more reasonable for a strong team. Try to build a balanced deck full of potential tag teams; neutral and incompatible teams will inevitably cause losses.
 
  <br/>
  <br/>
@@ -1098,7 +1142,7 @@
 
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="theGame" href="#theGame" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">The Game (not HHH)</a>
 
@@ -1135,7 +1179,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Deck Management</h3>
 
@@ -1152,7 +1196,7 @@
 
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="growthCycle" href="#growthCycle" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Growth Cycle</a>
 
@@ -1175,7 +1219,7 @@
   <br/>
   <br/>
 
-  Push for 20k points in PvP for the extra reward pack if possible, or as many Momentum slots as you can get if not. Top 5 in a PvP group get a promotion up to Silver, then Gold, then Platinum League, and extra SuperCoins. Top 50 <em>Global</em> get Credits, which can be done for free by burning ads for energy if people are very busy in events (which is extremely hard to judge). When you get Momentum put it on as many cards in your top 8 as you can without messing up any decks, and update it as your top 8 changes.
+  Push for 20k points in PvP for the extra reward pack if possible, or as many Momentum slots as you can get if not. Top 5 in a PvP group get a promotion up to Silver, then Gold, then Platinum League, and extra SuperCoins. Top 50 Global get Credits, which can be done for free by burning ads for energy if people are very busy in events (which is extremely hard to judge). When you get Momentum put it on as many cards in your top 8 as you can without messing up any decks, and update it as your top 8 changes.
 
   <br/>
   <br/>
@@ -1197,7 +1241,7 @@
   Also, try to play Survivor/TLC regularly for rewards, especially when you're trying to build out a deck. Great for Exclusive Draft Picks, and once you learn to play well, high-tier cards.
 </div>
 
-<hr>
+<div class="line"></div>
 
 <a name="resources" href="#resources" onclick="collapsible(this);scrollIntoView(this);return false" class="collapsible">Resources</a>
 
@@ -1225,7 +1269,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Dust, Dusting, Dusty Rhodes?</h3>
 
@@ -1238,7 +1282,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Cards</h3>
 
@@ -1261,7 +1305,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Currencies</h3>
 
@@ -1279,7 +1323,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Rewards</h3>
 
@@ -1287,7 +1331,7 @@
 
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Point/Pick Doublers</h3>
 
@@ -1301,7 +1345,7 @@
   <br/>
   <br/>
 
-  <hr>
+  <div class="line"></div>
 
   <h3>Supermove</h3>
 
@@ -1325,62 +1369,6 @@
 <br />
 
 
-<script type="text/javascript">
-function collapsible (a) {
-  const el = document.getElementById(a.attributes.name.nodeValue)
-
-  if (el.style.display === 'none') {
-    el.style.display = 'block'
-    a.classList.toggle('collapsible')
-    a.classList.toggle('expanded')
-  } else {
-    el.style.display = 'none'
-    a.classList.toggle('collapsible')
-    a.classList.toggle('expanded')
-  }
-}
-
-function updateFontFace (f) {
-  document.body.style.fontFamily = f;
-}
-
-function updateFontSize (s) {
-  document.body.style.fontSize = s + 'px'
-}
-
-function updateFontBold (b) {
-  if (b) {
-    document.body.style.fontWeight = 600
-  } else {
-    document.body.style.fontWeight = 100
-  }
-}
-
-function updateTheme (t) {
-  if (t === 'light') {
-    document.body.style.background = 'linear-gradient(white, rgb(238, 238, 238), white)'
-    document.body.style.color = 'rgb(10, 10, 10)'
-
-    Array.from(document.getElementsByTagName('hr')).forEach(function (hr) {
-      hr.className = 'light'
-    })
-  } else {
-    document.body.style.background = 'linear-gradient(black, rgb(10, 10, 10), black)'
-    document.body.style.color = 'white'
-
-    Array.from(document.getElementsByTagName('hr')).forEach(function (hr) {
-      hr.className = 'dark'
-    })
-  }
-}
-
-window.addEventListener('DOMContentLoaded', function collapseOnLoad (ev) {
-  const arr = Array.from(document.querySelectorAll('a.collapsible'))
-
-  for (a of arr) {
-    collapsible(a)
-  }
-})
-</script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

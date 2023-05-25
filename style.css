@@ -1,0 +1,102 @@
+body {
+  width: 80%;
+  margin-left: 10%;
+  color: white;
+  font-family: Times;
+  font-weight: 100;
+  line-height: 1.4rem;
+  background-image: linear-gradient(black, rgb(10, 10, 10), black);
+}
+
+h1, blockquote {
+  font-family: sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+#fontControls {
+  font-family: sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+hr {
+  border: 1px solid white;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 3.6rem;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+blockquote {
+  font-size: 1.1rem;
+}
+
+li {
+  line-height: 1.8rem;
+}
+
+div {
+  width: 80%;
+  margin-left: 5%;
+}
+
+div hr {
+  width: 40%;
+  height: 0px;
+}
+
+a.collapsible, a.expanded {
+  font-size: 20px;
+  font-weight: 600;
+  user-select: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.collapsible:after {
+  content: '\002d'; /* Unicode - */
+  font-size: 13px;
+  float: left;
+  margin-right: 1rem;
+}
+
+.expanded:after {
+  content: '\002b'; /* Unicode + */
+  font-size: 13px;
+  float: left;
+  margin-right: 1rem;
+  margin-top: 0.1rem;
+}
+
+.light {
+  border: 1px solid black;
+}
+
+.dark {
+  border: 1px solid white;
+}
+
+#fontControls {
+  user-select: none;
+}
+
+div.line {
+  margin-left: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 0.08px;
+  width: 100%;
+  background: white;
+}
