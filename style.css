@@ -8,13 +8,13 @@ body {
   background-image: linear-gradient(black, rgb(10, 10, 10), black);
 }
 
-h1, blockquote {
+h1, #disclaimer {
   font-family: sans-serif;
   font-weight: 800;
   text-align: center;
 }
 
-#fontControls {
+#settings {
   font-family: sans-serif;
   font-weight: 600;
   text-align: center;
